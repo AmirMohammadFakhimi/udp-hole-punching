@@ -31,6 +31,7 @@ while True:
         server_socket.sendto(address[0].encode(), address)
 
         if destination_id in pending_requests and pending_requests[destination_id] == source_id:
+            print(id_address[source_id], id_address[destination_id])
             server_socket.sendto(convert_address_to_string(id_address[source_id]), id_address[destination_id])
             server_socket.sendto(convert_address_to_string(id_address[destination_id]), id_address[source_id])
             del pending_requests[destination_id]
