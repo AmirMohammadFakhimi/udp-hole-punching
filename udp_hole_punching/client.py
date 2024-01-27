@@ -19,11 +19,13 @@ server_socket.sendto(f'{my_id} {destination_id}'.encode(), stun_server_address)
 
 my_public_address, _ = server_socket.recvfrom(1024)
 my_public_address = my_public_address.decode()
+print(f'My public address: {my_public_address}')
 
 destination_public_address, _ = server_socket.recvfrom(1024)
 destination_public_address = destination_public_address.decode()
 destination_public_address = destination_public_address.split(':')
 destination_public_address = destination_public_address[0], int(destination_public_address[1])
+print(f'Destination public address: {destination_public_address}')
 
 print(f'{my_public_address}:{port}:{my_id} -> '
       f'{destination_public_address[0]}:{destination_public_address[1]}:{destination_id}')
