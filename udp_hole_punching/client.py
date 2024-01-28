@@ -16,7 +16,7 @@ server_socket.bind((host, port))
 print(f'client running on port {port}...')
 
 # sending a message to the server in the format of 'my_id destination_id'
-stun_server_address = ('141.11.45.90', 12345)
+stun_server_address = ('localhost', 12345)
 server_socket.sendto(f'{my_id} {destination_id}'.encode(), stun_server_address)
 
 # receiving the public address (IP) of the client from the server
